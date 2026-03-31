@@ -11,6 +11,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Pull OpenFaaS Templates
+      run: faas-cli template pull
 
     - name: Install Terraform
       uses: hashicorp/setup-terraform@v2
