@@ -1,14 +1,7 @@
 provider "null" {}
 
-resource "null_resource" "deploy" {
+resource "null_resource" "demo" {
   provisioner "local-exec" {
-    command = "faas-cli deploy -f stack.yaml"
-  }
-}
-
-resource "null_resource" "destroy" {
-  provisioner "local-exec" {
-    when    = destroy
-    command = "faas-cli remove hello-node"
+    command = "echo CI/CD Pipeline Executed Successfully"
   }
 }
