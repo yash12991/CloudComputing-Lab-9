@@ -11,15 +11,20 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Pull OpenFaaS Templates
-      run: faas-cli template pull
 
+    # ✅ Install Terraform
     - name: Install Terraform
       uses: hashicorp/setup-terraform@v2
 
+    # ✅ Install OpenFaaS CLI (MOVE THIS UP)
     - name: Install OpenFaaS CLI
       run: curl -sSL https://cli.openfaas.com | sh
 
+    # ✅ NOW pull templates
+    - name: Pull OpenFaaS Templates
+      run: faas-cli template pull
+
+    # ✅ Terraform steps
     - name: Terraform Init
       run: terraform init
 
